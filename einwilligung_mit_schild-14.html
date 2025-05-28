@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Einwilligung</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fdfdfd;
+        }
+        .container {
+            text-align: center;
+            border-radius: 16px;
+            padding: 40px 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 28px;
+            margin-bottom: 30px;
+            gap: 10px;
+        }
+        .icon {
+            width: 36px;
+            height: 36px;
+        }
+        .checkbox-container {
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        .checkbox-container input[type="checkbox"] {
+            transform: scale(1.1);
+            margin-right: 10px;
+        }
+        .checkbox-container a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+        button {
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 500;
+            border: 2px solid gray;
+            border-radius: 10px;
+            background-color: white;
+            color: black;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function toggleButton(checkbox) {
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = !checkbox.checked;
+            btn.style.cursor = checkbox.checked ? 'pointer' : 'not-allowed';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <span class="icon">
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M32 2L6 12V32C6 50 32 62 32 62C32 62 58 50 58 32V12L32 2Z" fill="#666"/>
+                    <path d="M32 6L10 14V32C10 48 32 58 32 58C32 58 54 48 54 32V14L32 6Z" fill="#fff"/>
+                    <path d="M32 10L14 17V32C14 45 32 54 32 54C32 54 50 45 50 32V17L32 10Z" fill="#B0B0B0"/>
+                    <path d="M32 10L14 17V32C14 45 32 54 32 54V10Z" fill="#888888"/>
+                </svg>
+            </span>
+            Datenschutzerklärung
+        </div>
+        <div class="checkbox-container">
+            <input type="checkbox" id="consentCheckbox" onclick="toggleButton(this)">
+            <label for="consentCheckbox">Hiermit erkläre ich, dass ich die <a href="datenschutzerklaerung.html" target="_blank">Datenschutzerklärung</a> gelesen habe und ihr zustimme.</label>
+        </div>
+        <button id="submitBtn" disabled>Weiter zur Beratungssicherung</button>
+    </div>
+</body>
+</html>
